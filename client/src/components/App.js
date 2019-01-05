@@ -7,18 +7,22 @@ import StreamEdit from './streams/StreamEdit';
 import StreamList from './streams/StreamList';
 import StreamShow from './streams/StreamShow';
 
+import Header from './Header';
+
 function App() {
   return (
-    <div>
-      <div>Header</div>
+    <div className="ui container">
       <Router>
-        <Switch>
-          <Route exact path="/" component={StreamList} />
-          <Route path="/streams/new" component={StreamCreate} />
-          <Route path="/streams/edit" component={StreamEdit} />
-          <Route path="/streams/delete" component={StreamDelete} />
-          <Route path="/streams/show" component={StreamShow} />
-        </Switch>
+        <>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={StreamList} />
+            <Route path="/streams/new" component={StreamCreate} />
+            <Route path="/streams/edit" component={StreamEdit} />
+            <Route path="/streams/delete" component={StreamDelete} />
+            <Route path="/streams/show" component={StreamShow} />
+          </Switch>
+        </>
       </Router>
     </div>
   )
