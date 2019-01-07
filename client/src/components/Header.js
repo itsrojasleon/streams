@@ -5,17 +5,13 @@ import GoogleAuth from './GoogleAuth';
 
 function Header() {
   return (
-    <header>
-      <Link to="/">
-        Streamy
-      </Link>
-      <div>
-        <Link to="/">
-          All Streams
-        </Link>
+    <div className="ui secondary pointing menu">
+      <Link to="/" className="item">Streamy</Link>
+      <div className="right menu">
+        <Link to="/" className="item">All Streams</Link>
         <GoogleAuth />
       </div>
-    </header>
+    </div>
   );
 }
 export default Header;

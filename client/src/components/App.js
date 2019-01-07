@@ -11,7 +11,7 @@ import Header from './Header';
 
 function App() {
   return (
-    <div>
+    <div className="ui container">
       <Router>
         <>
           <Header />
