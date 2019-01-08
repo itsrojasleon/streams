@@ -8,6 +8,12 @@ import reducers from './reducers';
 import App from './components/App';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+// Debug Sessions
+// Add ?debug_session=something in the url (localhost:3000)
+// Example => localhost:3000?debug_session=something
+// And you can debug all the actions in your app
+
 const store = createStore(
   reducers,
   composeEnhancers(applyMiddleware())
