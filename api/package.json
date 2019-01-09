@@ -1,0 +1,14 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server -p 3001 -w db.json"
+  },
+  "author": "Juan Luis Rojas León",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.14.2"
+  }
+}
