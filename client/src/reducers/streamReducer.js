@@ -1,3 +1,4 @@
+import { omit } from 'lodash';
 import {
   CREATE_STREAM,
   FETCH_STREAMS,
@@ -15,6 +16,8 @@ export default function(state = {}, action) {
       return { ...state, [action.payload.id]: action.payload };
     case EDIT_STREAM:
       return { ...state, [action.payload.id]: action.payload };
+    case DELETE_STREAM:
+      return omit(state, action.payload);
     default:
       return state;
   }
