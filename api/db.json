@@ -1,11 +1,6 @@
 {
   "streams": [
     {
-      "title": "My stream",
-      "description": "This is a great stream",
-      "id": 1
-    },
-    {
       "title": "React",
       "description": "React course",
       "userId": "107347685888493391551",
