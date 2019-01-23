@@ -1,0 +1,14 @@
+{
+  "name": "rtmpserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Juan Luis Rojas León",
+  "license": "MIT",
+  "dependencies": {
+    "node-media-server": "^1.4.10"
+  }
+}
