@@ -8,7 +8,7 @@ class StreamShow extends React.Component {
     super(props);
     this.videoRef = React.createRef();
   }
-  
+
   componentDidMount() {
     const { id } = this.props.match.params; 
     this.props.fetchStream(id);
@@ -29,6 +29,10 @@ class StreamShow extends React.Component {
     });
     this.player.attachMediaElement(this.videoRef.current);
     this.player.load();
+  }
+
+  componentWillUnmount() {
+    this.player.destroy();
   }
 
   render() {
