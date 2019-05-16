@@ -1,32 +1,34 @@
-import React from 'react';
-import { Router, Switch, Route } from 'react-router-dom';
-
-import StreamCreate from './streams/StreamCreate';
-import StreamDelete from './streams/StreamDelete';
-import StreamEdit from './streams/StreamEdit';
-import StreamList from './streams/StreamList';
-import StreamShow from './streams/StreamShow';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Header from './Header';
 
-import history from '../history';
+// import history from '../history';
+
+const StreamCreate = lazy(() => import('./streams/StreamCreate'));
+const StreamDelete = lazy(() => import('./streams/StreamDelete'));
+const StreamEdit = lazy(() => import('./streams/StreamEdit'));
+const StreamList = lazy(() => import('./streams/StreamList'));
+const StreamShow = lazy(() => import('./streams/StreamShow'));
 
 function App() {
   return (
     <div className="ui container">
-      <Router history={history}>
+      <BrowserRouter>
         <>
           <Header />
-          <Switch>
-            <Route exact path="/" component={StreamList} />
-            <Route path="/streams/new" component={StreamCreate} />
-            <Route path="/streams/edit/:id" component={StreamEdit} />
-            <Route path="/streams/delete/:id" component={StreamDelete} />
-            <Route path="/streams/:id" component={StreamShow} />
-          </Switch>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Switch>
+              <Route exact path="/" component={StreamList} />
+              <Route path="/streams/new" component={StreamCreate} />
+              <Route path="/streams/edit/:id" component={StreamEdit} />
+              <Route path="/streams/delete/:id" component={StreamDelete} />
+              <Route path="/streams/:id" component={StreamShow} />
+            </Switch>
+          </Suspense>
         </>
-      </Router>
+      </BrowserRouter>
     </div>
-  )
+  );
 }
 export default App;
