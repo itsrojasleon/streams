@@ -20,7 +20,7 @@ function App() {
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
               <Route exact path="/" component={StreamList} />
-              <Route path="/streams/new" component={StreamCreate} />
+              <Route exact path="/streams/new" component={StreamCreate} />
               <Route path="/streams/edit/:id" component={StreamEdit} />
               <Route path="/streams/delete/:id" component={StreamDelete} />
               <Route path="/streams/:id" component={StreamShow} />
