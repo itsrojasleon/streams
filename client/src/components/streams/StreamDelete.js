@@ -14,16 +14,25 @@ class StreamDelete extends React.Component {
   }
   renderActions = () => (
     <>
-      <button onClick={() => this.props.deleteStream(this.props.match.params.id)} className="ui negative button">Delete</button>
-      <Link to="/" className="ui button">Cancel</Link>
+      <button
+        onClick={() => this.props.deleteStream(this.props.match.params.id)}
+        className="ui negative button"
+      >
+        Delete
+      </button>
+      <Link to="/" className="ui button">
+        Cancel
+      </Link>
     </>
   );
   renderContent = () => {
     if (!this.props.stream) {
       return 'Are you sure you want to delete this stream?';
     }
-    return `Are you sure you want to delete the stream with title: ${this.props.stream.title}`;
-  }
+    return `Are you sure you want to delete the stream with title: ${
+      this.props.stream.title
+    }`;
+  };
   render() {
     return (
       <Modal
@@ -37,5 +46,8 @@ class StreamDelete extends React.Component {
 }
 const mapStateToProps = ({ streams }, ownProps) => ({
   stream: streams[ownProps.match.params.id]
-})
-export default connect(mapStateToProps, { fetchStream, deleteStream })(StreamDelete);
+});
+export default connect(
+  mapStateToProps,
+  { fetchStream, deleteStream }
+)(StreamDelete);

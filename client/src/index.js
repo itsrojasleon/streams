@@ -15,10 +15,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // Example => localhost:3000?debug_session=something
 // And you can debug all the actions in your app
 
-const store = createStore(
-  reducers,
-  composeEnhancers(applyMiddleware(thunk))
-);
+const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <Provider store={store}>

@@ -10,7 +10,7 @@ class StreamShow extends React.Component {
   }
 
   componentDidMount() {
-    const { id } = this.props.match.params; 
+    const { id } = this.props.match.params;
     this.props.fetchStream(id);
     this.buildPlayer();
   }
@@ -22,14 +22,14 @@ class StreamShow extends React.Component {
   buildPlayer = () => {
     if (this.player || !this.props.stream) return;
 
-    const { id } = this.props.match.params; 
+    const { id } = this.props.match.params;
     this.player = flv.createPlayer({
       type: 'flv',
       url: `http://localhost:8000/live/${id}.flv`
     });
     this.player.attachMediaElement(this.videoRef.current);
     this.player.load();
-  }
+  };
 
   componentWillUnmount() {
     this.player.destroy();
@@ -37,16 +37,12 @@ class StreamShow extends React.Component {
 
   render() {
     if (!this.props.stream) {
-      return <div>Loading...</div>
+      return <div>Loading...</div>;
     }
     const { title, description } = this.props.stream;
     return (
       <div>
-        <video
-          ref={this.videoRef}
-          style={{ width: '100%' }}
-          controls
-        />
+        <video ref={this.videoRef} style={{ width: '100%' }} controls />
         <h1>{title}</h1>
         <h5>{description}</h5>
       </div>
@@ -54,6 +50,9 @@ class StreamShow extends React.Component {
   }
 }
 const mapStateToProps = ({ streams }, ownProps) => {
-  return { stream: streams[ownProps.match.params.id] }
-}
-export default connect(mapStateToProps, { fetchStream })(StreamShow);
+  return { stream: streams[ownProps.match.params.id] };
+};
+export default connect(
+  mapStateToProps,
+  { fetchStream }
+)(StreamShow);

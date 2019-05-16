@@ -8,7 +8,7 @@ import StreamForm from './StreamForm';
 class StreamCreate extends Component {
   onSubmit = formValues => {
     this.props.createStream(formValues);
-  }
+  };
   render() {
     return (
       <div>
@@ -18,4 +18,7 @@ class StreamCreate extends Component {
     );
   }
 }
-export default connect(null, { createStream })(StreamCreate);
+export default connect(
+  null,
+  { createStream }
+)(StreamCreate);
